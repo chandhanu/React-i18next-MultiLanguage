@@ -18,9 +18,6 @@ To set up and run this project, follow these steps:
 
 1. **Clone the Repository**
 
-   git clone <repository-url>
-   cd <repository-directory>
-
 2. **`npm install`**
 
 Installs necessary packages for the app, also check tsconfig.json for enabling eslint variants 
