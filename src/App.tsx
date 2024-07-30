@@ -1,19 +1,19 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import {  useTranslationContext } from './context/TranslationContext';
 import { useLocalize } from './hooks/useLocalize';
+import ExampleComponent from './components/ExampleComponent';
 
 const App: React.FC = () => {
-  const { t } = useTranslation(); // No need to specify namespaces here if they are configured in i18n
   const { handleLanguageChange } = useLocalize();
+  const { t } = useTranslationContext();
 
   return (
-    <div>
-      <h1>{t('pages:welcome_message')}</h1>
-      <h1>{t('fields:username')}</h1>
-      <h1>{t('errors:required')}</h1>
-      <button onClick={() => handleLanguageChange('en')}>English</button>
-      <button onClick={() => handleLanguageChange('es')}>Español</button>
-    </div>
+      <div>
+        <h1>{t('welcome_message')}, Welcome to our application</h1>
+        <button onClick={() => handleLanguageChange('en')}>English</button>
+        <button onClick={() => handleLanguageChange('es')}>Español</button>
+        <ExampleComponent />
+      </div>
   );
 };
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslationContext } from '../context/TranslationContext';
 
 const ExampleComponent: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslationContext();
 
   return (
     <div>
-      <h2>{t('username')}</h2>
-      <p>{t('password')}</p>
+      <h2>{t('fields:username')}</h2>
+      <p>{t('fields:password')}</p>
     </div>
   );
 };
