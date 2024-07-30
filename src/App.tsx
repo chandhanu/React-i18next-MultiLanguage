@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocalize } from './hooks/useLocalize';
 
 const App: React.FC = () => {
-  const { t, i18n } = useTranslation(['pages', 'errors', 'fields']);
+  const { t } = useTranslation(); // No need to specify namespaces here if they are configured in i18n
   const { handleLanguageChange } = useLocalize();
-
-  useEffect(() => {
-    i18n.loadNamespaces(['pages', 'errors', 'fields']);
-  }, [i18n]);
 
   return (
     <div>
