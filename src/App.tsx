@@ -4,14 +4,17 @@ import { useLocalize } from './hooks/useLocalize';
 import ExampleComponent from './components/ExampleComponent';
 
 const App: React.FC = () => {
-  const { handleLanguageChange } = useLocalize();
-  const { t } = useTranslationContext();
+  const { handleLanguageChange } = useLocalize(); // Hook for changing languages
+  const { t } = useTranslationContext(); // Context hook for translation
 
   return (
     <div>
-      <h1>{t('welcome_message')}, Welcome to our application</h1>
+      {/* Translates and displays a message */}
+      <h1>{t('pages:welcome_message')}, Welcome to our application</h1>
+      {/* Buttons to switch languages */}
       <button onClick={() => handleLanguageChange('en')}>English</button>
       <button onClick={() => handleLanguageChange('es')}>Español</button>
+      {/* ExampleComponent displays other translations */}
       <ExampleComponent />
     </div>
   );
