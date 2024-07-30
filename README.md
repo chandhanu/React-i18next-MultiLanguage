@@ -21,7 +21,7 @@ To set up and run this project, follow these steps:
    git clone <repository-url>
    cd <repository-directory>
 
-2. **`npm install`y**
+2. **`npm install`**
 
 Installs necessary packages for the app, also check tsconfig.json for enabling eslint variants 
 
@@ -32,26 +32,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-## Project Structure
-public/
-  locales/
-    en/
-      pages.json
-      errors.json
-      fields.json
-    es/
-      pages.json
-      errors.json
-      fields.json
-src/
-  App.tsx
-  hooks/
-    useLocalize.ts
-  components/
-    ExampleComponent.tsx
-  i18n.ts
-  index.tsx
-  context/
-    TranslationContext.tsx
 
