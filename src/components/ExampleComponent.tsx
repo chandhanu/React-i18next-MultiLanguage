@@ -7,8 +7,12 @@ const ExampleComponent: React.FC = () => {
   return (
     <div>
       {/* Use translation function to get translated text */}
-      <h2>{t('fields:username')}</h2>
-      <p>{t('fields:password')}</p>
+      <h3>Component example : (fields.json)</h3>
+      <h3>UserName/Password:</h3>
+      <p>{t('fields:username')}/{t('fields:password')}</p>
+      <h3>Component example : (errors.json)</h3>
+      <h2>{t('errors:required')}</h2>
+      <p>{t('errors:invalidEmail')}</p>
     </div>
   );
 };

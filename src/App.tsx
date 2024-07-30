@@ -10,12 +10,13 @@ const App: React.FC = () => {
   return (
     <div>
       {/* Translates and displays a message */}
-      <h1>{t('pages:welcome_message')}, Welcome to our application</h1>
+      <h1>{t('welcome_message')}, {t('title')}</h1> 
+      <p>  {t('description')} (pages.json)</p>
       {/* Buttons to switch languages */}
       <button onClick={() => handleLanguageChange('en')}>English</button>
       <button onClick={() => handleLanguageChange('es')}>Español</button>
       {/* ExampleComponent displays other translations */}
-      <ExampleComponent />
+      <ExampleComponent /> 
     </div>
   );
 };
