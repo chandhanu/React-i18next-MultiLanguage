@@ -1,0 +1,16 @@
+public/
+  locales/
+    en/
+      pages.json
+      errors.json
+      fields.json
+    es/
+      pages.json
+      errors.json
+      fields.json
+src/
+  App.tsx
+  hooks/
+    useLocalize.ts
+  i18n.ts
+  index.tsx

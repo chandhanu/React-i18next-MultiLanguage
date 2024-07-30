@@ -1,41 +1,40 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
-//import LanguageDetector from 'i18next-browser-languagedetector';
-
-// Merge multiple JSON files into one for each language
-const loadPath = (lng: string, ns: string) => {
-  const namespaces = ['page', 'fields', 'errors'];
-  const files = namespaces.map(ns => `/locales/${lng}/${ns}.json`);
-  return files;
-};
-
-// Custom backend to handle multiple files
-const customBackend = {
-  read: async (req, language, namespace, callback) => {
-    const urls = loadPath(language, namespace);
-    try {
-      const translations = await Promise.all(urls.map(url => fetch(url).then(res => res.json())));
-      const mergedTranslations = Object.assign({}, ...translations);
-      callback(null, mergedTranslations);
-    } catch (error) {
-      callback(error, false);
-    }
-  }
-};
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
   .use(HttpBackend)
-  //.use(LanguageDetector)
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    backend: customBackend,
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
     fallbackLng: 'en',
-    load: 'languageOnly', // Load without regions (e.g., "en" instead of "en-US")
-    ns: ['translation'], // Default namespace
+    debug: true,
+    load: 'languageOnly',
+    ns: ['pages', 'errors', 'fields'],
+    defaultNS: 'pages',
     interpolation: {
-      escapeValue: false, // React already safes from xss
+      escapeValue: false,
+    },
+    react: {
+      wait: true
     },
   });
+
+i18n.on('languageChanged', (lng) => {
+  console.log(`Language changed to ${lng}`);
+});
+
+i18n.on('loaded', (loaded) => {
+  console.log('Loaded resources:', loaded);
+  i18n.loadNamespaces(['pages', 'errors', 'fields'], () => {
+    console.log('Namespaces loaded:', i18n.getResourceBundle('en', 'pages'));
+    console.log('Namespaces loaded:', i18n.getResourceBundle('en', 'errors'));
+    console.log('Namespaces loaded:', i18n.getResourceBundle('en', 'fields'));
+  });
+});
 
 export default i18n;

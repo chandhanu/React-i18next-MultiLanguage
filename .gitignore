@@ -4,7 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-
+# Debug 3rd party 
+/tmp
+./appmap.yml
 # testing
 /coverage
 

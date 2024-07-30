@@ -1,10 +1,10 @@
-import { i18n } from 'i18next';
 import { useCallback } from 'react';
+import i18n from '../i18n';
 
-export const useLocalize = (i18n: i18n) => {
+export const useLocalize = () => {
   const handleLanguageChange = useCallback((language: string) => {
     i18n.changeLanguage(language);
-  }, [i18n]);
+  }, []);
 
   return { handleLanguageChange };
 };

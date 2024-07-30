@@ -1,4 +1,5 @@
 {
   "title": "Bienvenido a nuestra aplicación",
-  "description": "Esta es una pagina de ejemplo."
+  "description": "Esta es una pagina de ejemplo.",
+  "welcome_message": "hola"
 }

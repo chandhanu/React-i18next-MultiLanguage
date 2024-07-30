@@ -1,4 +1,4 @@
-name: react-multi-language-support-i18next
+name: i18next-poc
 language: javascript
 appmap_dir: tmp/appmap
 packages:
